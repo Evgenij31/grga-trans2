@@ -206,7 +206,10 @@ function StatsSection() {
 }
 
 function GallerySection() {
-  const trackRef = useRef<HTMLDivElement>(null);
+  const [i, setI] = useState(0);
+  const total = galleryImages.length;
+  const go = (n: number) => setI(((n % total) + total) % total);
+
   return (
     <section className="py-20 md:py-28 bg-background">
       <div className="max-w-7xl mx-auto px-6">
@@ -214,27 +217,51 @@ function GallerySection() {
           <span className="inline-block text-xs font-display uppercase tracking-[0.2em] text-brand-accent mb-4">Галерија</span>
           <h2 className="text-3xl md:text-4xl font-display uppercase text-foreground">Нашата работа во акција</h2>
         </div>
-      </div>
-      <div
-        ref={trackRef}
-        className="flex gap-4 overflow-x-auto snap-x snap-mandatory px-6 pb-6 scroll-smooth"
-        style={{ scrollbarWidth: "thin" }}
-      >
-        {galleryImages.map((src, i) => (
-          <div
-            key={i}
-            className="snap-start shrink-0 w-72 md:w-96 aspect-[4/3] rounded-xl overflow-hidden shadow-md hover:shadow-[var(--shadow-soft)] transition-shadow"
-          >
-            <img
-              src={src}
-              alt={`Галерија ${i + 1}`}
-              loading="lazy"
-              width={800}
-              height={600}
-              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-            />
+
+        <div className="relative rounded-xl overflow-hidden shadow-[var(--shadow-soft)] bg-muted">
+          <div className="relative aspect-[16/9] w-full">
+            {galleryImages.map((src, idx) => (
+              <img
+                key={idx}
+                src={src}
+                alt={`Галерија ${idx + 1}`}
+                loading={idx === 0 ? "eager" : "lazy"}
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
+                  idx === i ? "opacity-100" : "opacity-0"
+                }`}
+                aria-hidden={idx !== i}
+              />
+            ))}
           </div>
-        ))}
+
+          <button
+            onClick={() => go(i - 1)}
+            aria-label="Претходна"
+            className="absolute left-3 md:left-5 top-1/2 -translate-y-1/2 w-11 h-11 md:w-14 md:h-14 rounded-full bg-white/15 backdrop-blur-md border border-white/30 text-white hover:bg-brand-accent hover:border-brand-accent transition-all flex items-center justify-center"
+          >
+            <ChevronLeft />
+          </button>
+          <button
+            onClick={() => go(i + 1)}
+            aria-label="Следна"
+            className="absolute right-3 md:right-5 top-1/2 -translate-y-1/2 w-11 h-11 md:w-14 md:h-14 rounded-full bg-white/15 backdrop-blur-md border border-white/30 text-white hover:bg-brand-accent hover:border-brand-accent transition-all flex items-center justify-center"
+          >
+            <ChevronRight />
+          </button>
+
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+            {galleryImages.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => go(idx)}
+                aria-label={`Слајд ${idx + 1}`}
+                className={`h-1.5 rounded-full transition-all ${
+                  idx === i ? "w-6 bg-brand-accent" : "w-1.5 bg-white/60 hover:bg-white"
+                }`}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

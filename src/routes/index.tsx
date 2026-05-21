@@ -25,9 +25,15 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Грга Транс — Почетна" },
-      { name: "description", content: "Грга Транс — киперски транспорт во и надвор од државата од 1999 година." },
+      {
+        name: "description",
+        content: "Грга Транс — киперски транспорт во и надвор од државата од 1999 година.",
+      },
       { property: "og:title", content: "Грга Транс — Поврзувајќи дестинации, градејќи доверба" },
-      { property: "og:description", content: "Професионален киперски транспорт за јаглен, песок, камен и градежни материјали." },
+      {
+        property: "og:description",
+        content: "Професионален киперски транспорт за јаглен, песок, камен и градежни материјали.",
+      },
     ],
   }),
   component: HomePage,
@@ -58,7 +64,7 @@ function HeroSlideshow() {
       {heroSlides.map((src, i) => (
         <div
           key={src}
-          className={`parallax-bg absolute inset-0 transition-opacity duration-[1500ms] ease-in-out ${
+          className={`parallax-bg absolute inset-0 transition-opacity duration-1500ms ease-in-out ${
             i === index ? "opacity-100" : "opacity-0"
           }`}
           style={{ backgroundImage: `url(${src})` }}
@@ -80,28 +86,45 @@ function HeroSlideshow() {
 
 function MissionSection() {
   const services = [
-    { icon: Mountain, img: serviceCoal, title: "Транспорт на јаглен", desc: "Сигурен и навремен превоз на јаглен за енергетски и индустриски потреби." },
-    { icon: Package, img: serviceSand, title: "Транспорт на песок", desc: "Достава на песок до градилишта и фабрики низ целата држава." },
-    { icon: Truck, img: serviceStone, title: "Транспорт на камен", desc: "Превоз на дробен камен и градежни агрегати со современа киперска флота." },
+    {
+      icon: Mountain,
+      img: serviceCoal,
+      title: "Транспорт на јаглен",
+      desc: "Сигурен и навремен превоз на јаглен за енергетски и индустриски потреби.",
+    },
+    {
+      icon: Package,
+      img: serviceSand,
+      title: "Транспорт на песок",
+      desc: "Достава на песок до градилишта и фабрики низ целата држава.",
+    },
+    {
+      icon: Truck,
+      img: serviceStone,
+      title: "Транспорт на камен",
+      desc: "Превоз на дробен камен и градежни агрегати со современа киперска флота.",
+    },
   ];
   return (
     <section className="py-20 md:py-28 bg-background">
       <div className="max-w-5xl mx-auto px-6 text-center">
-        <span className="inline-block text-xs font-display uppercase tracking-[0.2em] text-brand-accent mb-4">Нашата мисија</span>
+        <span className="inline-block text-xs font-display uppercase tracking-[0.2em] text-brand-accent mb-4">
+          Нашата мисија
+        </span>
         <p className="text-lg md:text-xl text-foreground/80 leading-relaxed text-balance">
           Посветени на обезбедување врвни логистички услуги кои ги надминуваат вашите очекувања.
-          Нашата мисија е да ги олесниме вашите деловни операции преку ефективни, сигурни и иновативни
-          решенија за транспорт и складирање. Фирмата е основана во 1999 година и нејзина главна
-          дејност е киперски транспорт во државата и надвор.
+          Нашата мисија е да ги олесниме вашите деловни операции преку ефективни, сигурни и
+          иновативни решенија за транспорт и складирање. Фирмата е основана во 1999 година и нејзина
+          главна дејност е киперски транспорт во државата и надвор.
         </p>
       </div>
       <div className="max-w-7xl mx-auto px-6 mt-16 grid gap-8 md:grid-cols-3">
         {services.map((s) => (
           <article
             key={s.title}
-            className="group bg-card rounded-xl overflow-hidden border border-border shadow-sm hover:shadow-[var(--shadow-soft)] transition-all duration-300 hover:-translate-y-1"
+            className="group bg-card rounded-xl overflow-hidden border border-border shadow-sm hover:shadow-[(--shadow-soft)] transition-all duration-300 hover:-translate-y-1"
           >
-            <div className="aspect-[4/3] overflow-hidden">
+            <div className="aspect-4/3 overflow-hidden">
               <img
                 src={s.img}
                 alt={s.title}
@@ -115,7 +138,9 @@ function MissionSection() {
               <div className="w-12 h-12 rounded-lg bg-brand text-brand-foreground flex items-center justify-center mb-4">
                 <s.icon size={22} />
               </div>
-              <h3 className="text-xl font-display uppercase tracking-wide text-foreground mb-2">{s.title}</h3>
+              <h3 className="text-xl font-display uppercase tracking-wide text-foreground mb-2">
+                {s.title}
+              </h3>
               <p className="text-muted-foreground">{s.desc}</p>
             </div>
           </article>
@@ -132,25 +157,33 @@ function CountUp({ end, suffix = "+" }: { end: number; suffix?: string }) {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting && !started.current) {
-          started.current = true;
-          const duration = 1800;
-          const start = performance.now();
-          const tick = (now: number) => {
-            const p = Math.min(1, (now - start) / duration);
-            setN(Math.floor(end * (1 - Math.pow(1 - p, 3))));
-            if (p < 1) requestAnimationFrame(tick);
-          };
-          requestAnimationFrame(tick);
-        }
-      });
-    }, { threshold: 0.3 });
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting && !started.current) {
+            started.current = true;
+            const duration = 1800;
+            const start = performance.now();
+            const tick = (now: number) => {
+              const p = Math.min(1, (now - start) / duration);
+              setN(Math.floor(end * (1 - Math.pow(1 - p, 3))));
+              if (p < 1) requestAnimationFrame(tick);
+            };
+            requestAnimationFrame(tick);
+          }
+        });
+      },
+      { threshold: 0.3 },
+    );
     obs.observe(el);
     return () => obs.disconnect();
   }, [end]);
-  return <span ref={ref}>{n.toLocaleString("mk-MK")}{suffix}</span>;
+  return (
+    <span ref={ref}>
+      {n.toLocaleString("mk-MK")}
+      {suffix}
+    </span>
+  );
 }
 
 function StatsSection() {
@@ -169,15 +202,21 @@ function StatsSection() {
               <div className="font-display text-4xl md:text-6xl text-brand-accent">
                 <CountUp end={s.value} />
               </div>
-              <div className="mt-2 text-sm md:text-base uppercase tracking-wider text-white/80">{s.label}</div>
+              <div className="mt-2 text-sm md:text-base uppercase tracking-wider text-white/80">
+                {s.label}
+              </div>
             </div>
           ))}
         </div>
 
         <div className="mt-20 grid md:grid-cols-2 gap-10 md:gap-16 items-center">
           <div>
-            <span className="inline-block text-xs font-display uppercase tracking-[0.2em] text-brand-accent mb-4">За нас</span>
-            <h2 className="text-3xl md:text-4xl font-display uppercase mb-6">Повеќе од две децении искуство</h2>
+            <span className="inline-block text-xs font-display uppercase tracking-[0.2em] text-brand-accent mb-4">
+              За нас
+            </span>
+            <h2 className="text-3xl md:text-4xl font-display uppercase mb-6">
+              Повеќе од две децении искуство
+            </h2>
             <p className="text-white/85 leading-relaxed mb-4">
               Од нашето основање во 1999 година, Грга Транс расте заедно со своите клиенти, градејќи
               партнерства засновани на доверба, точност и професионализам. Нашата флота од модерни
@@ -196,7 +235,7 @@ function StatsSection() {
               loading="lazy"
               width={1200}
               height={900}
-              className="rounded-xl shadow-2xl w-full h-auto object-cover"
+              className="rounded-xl shadow-2xl w-full h-100 object-cover"
             />
           </div>
         </div>
@@ -214,12 +253,16 @@ function GallerySection() {
     <section className="py-20 md:py-28 bg-background">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-12">
-          <span className="inline-block text-xs font-display uppercase tracking-[0.2em] text-brand-accent mb-4">Галерија</span>
-          <h2 className="text-3xl md:text-4xl font-display uppercase text-foreground">Нашата работа во акција</h2>
+          <span className="inline-block text-xs font-display uppercase tracking-[0.2em] text-brand-accent mb-4">
+            Галерија
+          </span>
+          <h2 className="text-3xl md:text-4xl font-display uppercase text-foreground">
+            Нашата работа во акција
+          </h2>
         </div>
 
-        <div className="relative rounded-xl overflow-hidden shadow-[var(--shadow-soft)] bg-muted">
-          <div className="relative aspect-[16/9] w-full">
+        <div className="relative rounded-xl overflow-hidden shadow-[(--shadow-soft)] bg-muted">
+          <div className="relative aspect-video w-full">
             {galleryImages.map((src, idx) => (
               <img
                 key={idx}

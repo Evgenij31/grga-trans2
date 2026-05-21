@@ -24,13 +24,17 @@ export function Header() {
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
         scrolled || open
-          ? "bg-brand/95 backdrop-blur-md shadow-[var(--shadow-soft)]"
+          ? "bg-brand/95 backdrop-blur-md shadow-(--shadow-soft)"
           : "bg-brand/80 backdrop-blur-sm"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between h-16 md:h-20">
         <Link to="/" className="flex items-center gap-2 shrink-0" onClick={() => setOpen(false)}>
-          <img src={logo} alt="Грга Транс" className="h-10 md:h-12 w-auto" />
+          <img
+            src={logo}
+            alt="Грга Транс"
+            className="h-12 md:h-13 w-auto drop-shadow-[0px_0px_3px_rgba(240,240,240,0.7)]"
+          />
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">
@@ -40,8 +44,10 @@ export function Header() {
               to={l.to}
               activeOptions={{ exact: true }}
               activeProps={{ className: "text-white border-b-2 border-brand-accent" }}
-              inactiveProps={{ className: "text-white/85 hover:text-white border-b-2 border-transparent" }}
-              className="font-display uppercase tracking-wider text-sm pb-1 transition-colors"
+              inactiveProps={{
+                className: "text-white/85 hover:text-white border-b-2 border-transparent",
+              }}
+              className="font-display uppercase tracking-wider text-lg pb-1 transition-colors"
             >
               {l.label}
             </Link>

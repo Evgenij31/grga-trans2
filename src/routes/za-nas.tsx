@@ -65,7 +65,7 @@ function AboutPage() {
           aria-hidden={idx !== i}
         />
       ))}
-      <div className="absolute inset-0 bg-gradient-to-r from-brand/90 via-brand/70 to-brand/30" />
+      <div className="absolute inset-0 bg-linear-to-r from-brand/90 via-brand/70 to-brand/30" />
 
       <div className="relative z-10 min-h-[calc(100vh-5rem)] flex flex-col">
         <div className="flex-1 flex items-center">

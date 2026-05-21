@@ -8,9 +8,15 @@ export const Route = createFileRoute("/kontakt")({
   head: () => ({
     meta: [
       { title: "Контакт — Грга Транс" },
-      { name: "description", content: "Стапете во контакт со Грга Транс — телефон, email и локација." },
+      {
+        name: "description",
+        content: "Стапете во контакт со Грга Транс — телефон, email и локација.",
+      },
       { property: "og:title", content: "Контакт — Грга Транс" },
-      { property: "og:description", content: "Контактирајте нѐ за киперски транспорт и логистички услуги." },
+      {
+        property: "og:description",
+        content: "Контактирајте нѐ за киперски транспорт и логистички услуги.",
+      },
     ],
   }),
   component: ContactPage,
@@ -32,17 +38,17 @@ function ContactCards() {
       icon: Phone,
       title: "Телефон",
       items: [
-        { label: "+389 70 123 456", href: "tel:+38970123456" },
-        { label: "+389 70 654 321", href: "tel:+38970654321" },
-        { label: "+389 2 3123 456", href: "tel:+38923123456" },
+        { label: "070/309-403", href: "tel:070309403" },
+        { label: "076/552-462", href: "tel:076552462" },
+        { label: "075/746-066", href: "tel:075746066" },
       ],
     },
     {
       icon: MapPin,
       title: "Локација",
       items: [
-        { label: "ул. Македонија 123", href: null },
-        { label: "1000 Скопје", href: null },
+        { label: "ул. Пример 123", href: null },
+        { label: "2300 Кочани", href: null },
         { label: "Северна Македонија", href: null },
       ],
     },
@@ -50,8 +56,8 @@ function ContactCards() {
       icon: Mail,
       title: "Email",
       items: [
-        { label: "info@grgatrans.mk", href: "mailto:info@grgatrans.mk" },
-        { label: "logistika@grgatrans.mk", href: "mailto:logistika@grgatrans.mk" },
+        { label: "grgadoo99@gmail.com", href: "mailto:grgadoo99@gmail.com" },
+        { label: "contact@grga-trans.com", href: "mailto:contact@grga-trans.com" },
       ],
     },
   ];
@@ -59,10 +65,15 @@ function ContactCards() {
     <section className="py-20 md:py-24 bg-background">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-14">
-          <span className="inline-block text-xs font-display uppercase tracking-[0.2em] text-brand-accent mb-4">Контакт</span>
-          <h1 className="text-4xl md:text-5xl font-display uppercase text-foreground">Стапете во контакт</h1>
+          <span className="inline-block text-xs font-display uppercase tracking-[0.2em] text-brand-accent mb-4">
+            Контакт
+          </span>
+          <h1 className="text-4xl md:text-5xl font-display uppercase text-foreground">
+            Стапете во контакт
+          </h1>
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-            Тука сме за вашите прашања, понуди и соработки. Изберете го најпогодниот начин за контакт.
+            Тука сме за вашите прашања, понуди и соработки. Изберете го најпогодниот начин за
+            контакт.
           </p>
         </div>
 
@@ -70,7 +81,7 @@ function ContactCards() {
           {cards.map((c) => (
             <div
               key={c.title}
-              className="bg-card border border-border rounded-xl p-8 text-center hover:shadow-[var(--shadow-soft)] transition-shadow"
+              className="bg-card border border-border rounded-xl p-8 text-center hover:shadow-[(--shadow-soft)] transition-shadow"
             >
               <div className="mx-auto w-14 h-14 rounded-full bg-brand text-brand-foreground flex items-center justify-center mb-5">
                 <c.icon size={22} />
@@ -80,8 +91,12 @@ function ContactCards() {
                 {c.items.map((it) => (
                   <li key={it.label} className="text-muted-foreground">
                     {it.href ? (
-                      <a href={it.href} className="hover:text-brand transition-colors">{it.label}</a>
-                    ) : it.label}
+                      <a href={it.href} className="hover:text-brand transition-colors">
+                        {it.label}
+                      </a>
+                    ) : (
+                      it.label
+                    )}
                   </li>
                 ))}
               </ul>
@@ -105,7 +120,8 @@ function ContactForm() {
     if (!name || name.length > 100) return toast.error("Внесете валидно име (до 100 знаци).");
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || email.length > 255)
       return toast.error("Внесете валидна email адреса.");
-    if (!message || message.length > 1000) return toast.error("Пораката е задолжителна (до 1000 знаци).");
+    if (!message || message.length > 1000)
+      return toast.error("Пораката е задолжителна (до 1000 знаци).");
     setSending(true);
     setTimeout(() => {
       toast.success("Пораката е испратена! Ќе ве контактираме наскоро.");
@@ -118,12 +134,21 @@ function ContactForm() {
     <section className="py-20 md:py-24 bg-secondary">
       <div className="max-w-3xl mx-auto px-6">
         <div className="text-center mb-10">
-          <span className="inline-block text-xs font-display uppercase tracking-[0.2em] text-brand-accent mb-4">Пишете ни</span>
-          <h2 className="text-3xl md:text-4xl font-display uppercase text-foreground">Контакт форма</h2>
+          <span className="inline-block text-xs font-display uppercase tracking-[0.2em] text-brand-accent mb-4">
+            Контактирајте нѐ
+          </span>
+          <h2 className="text-3xl md:text-4xl font-display uppercase text-foreground">
+            Контакт форма
+          </h2>
         </div>
-        <form onSubmit={onSubmit} className="bg-card border border-border rounded-xl p-6 md:p-10 shadow-sm space-y-5">
+        <form
+          onSubmit={onSubmit}
+          className="bg-card border border-border rounded-xl p-6 md:p-10 shadow-sm space-y-5"
+        >
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">Име и презиме</label>
+            <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+              Име и презиме
+            </label>
             <input
               id="name"
               type="text"
@@ -136,7 +161,9 @@ function ContactForm() {
             />
           </div>
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">Email</label>
+            <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+              Email
+            </label>
             <input
               id="email"
               type="email"
@@ -145,11 +172,13 @@ function ContactForm() {
               maxLength={255}
               required
               className="w-full px-4 py-3 rounded-md border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent transition"
-              placeholder="vasa@email.mk"
+              placeholder="primer@email.com"
             />
           </div>
           <div>
-            <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">Порака</label>
+            <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
+              Порака
+            </label>
             <textarea
               id="message"
               value={data.message}

@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { Truck, Mountain, Package } from "lucide-react";
+import { Truck, Mountain, Package, ChevronLeft, ChevronRight } from "lucide-react";
 import hero1 from "@/assets/hero-1.jpg";
 import hero2 from "@/assets/hero-2.jpg";
 import hero3 from "@/assets/hero-3.jpg";
@@ -73,7 +73,6 @@ function HeroSlideshow() {
         <h2 className="mt-4 md:mt-6 text-white/90 text-lg sm:text-2xl md:text-3xl font-light max-w-3xl text-balance">
           Поврзувајќи дестинации, градејќи доверба
         </h2>
-        <div className="mt-10 h-12 w-1 bg-brand-accent rounded-full animate-pulse" />
       </div>
     </section>
   );

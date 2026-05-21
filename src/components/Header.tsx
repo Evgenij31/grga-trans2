@@ -33,7 +33,7 @@ export function Header() {
           <img
             src={logo}
             alt="Грга Транс"
-            className="h-12 md:h-13 w-auto drop-shadow-[0px_0px_3px_rgba(240,240,240,0.7)]"
+            className="h-12 md:h-16 w-auto drop-shadow-[0px_0px_8px_rgba(200,200,250,0.7)]"
           />
         </Link>
 

@@ -30,7 +30,7 @@ export function Header() {
     >
       <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between h-16 md:h-20">
         <Link to="/" className="flex items-center gap-2 shrink-0" onClick={() => setOpen(false)}>
-          <img src={logo} alt="Грга Транс" className="h-10 md:h-12 w-auto bg-white rounded-md p-1" />
+          <img src={logo} alt="Грга Транс" className="h-10 md:h-12 w-auto" />
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">

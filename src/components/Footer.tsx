@@ -26,7 +26,7 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col items-center text-center">
-          <img src={logo} alt="Грга Транс" className="h-16 w-auto bg-white rounded-md p-2 mb-4" />
+          <img src={logo} alt="Грга Транс" className="h-16 w-auto mb-4" />
           <div className="flex gap-3 mt-2">
             <a
               href="https://instagram.com"

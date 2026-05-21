@@ -1,6 +1,6 @@
 [build]
-  command = "bun run build"
-  publish = "dist/client"
+  command = "bun run build --preset=static"
+  publish = ".output/public"
 
 [[redirects]]
   from = "/*"

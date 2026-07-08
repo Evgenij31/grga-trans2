@@ -306,7 +306,10 @@ export function AboutPage({ locale }: { locale: Locale }) {
       <div className="relative z-10 flex min-h-[calc(100vh-5rem)] flex-col">
         <div className="flex-1 flex items-center">
           <div className="mx-auto grid w-full max-w-7xl gap-10 px-6 md:grid-cols-2 md:px-12">
-            <div key={index} className="animate-in fade-in slide-in-from-left-8 text-white duration-700">
+            <div
+              key={index}
+              className="animate-in fade-in slide-in-from-left-8 text-white duration-700"
+            >
               <span className="mb-4 inline-block text-xs font-display uppercase tracking-[0.25em] text-brand-accent">
                 {copy.label}
               </span>
@@ -368,7 +371,11 @@ export function AboutPage({ locale }: { locale: Locale }) {
                     : "h-12 w-16 border-white/30 opacity-60 hover:opacity-100 md:h-14 md:w-20"
                 }`}
               >
-                  <img src={slideImages[idx]} alt={slide.title} className="h-full w-full object-cover" />
+                <img
+                  src={slideImages[idx]}
+                  alt={slide.title}
+                  className="h-full w-full object-cover"
+                />
               </button>
             ))}
           </div>
@@ -412,7 +419,7 @@ function ContactCards({ locale }: { locale: Locale }) {
             >
               <h3 className="mb-4 font-display text-xl uppercase text-foreground">{card.title}</h3>
               <ul className="space-y-1.5">
-                {card.items.map((item) => (
+                {card.items.map((item: string | { label: string; href: string | null }) => (
                   <li
                     key={typeof item === "string" ? item : item.label}
                     className="text-muted-foreground"

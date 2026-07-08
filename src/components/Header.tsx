@@ -25,7 +25,7 @@ export function Header() {
   const locale = getLocaleFromPathname(location.pathname);
   const page = getPageFromPathname(location.pathname);
   const links = getLocalizedNav(locale);
-  
+
   useEffect(() => {
     setOpen(false);
   }, [location.pathname]);

@@ -1,26 +1,35 @@
 import { Link } from "@tanstack/react-router";
 import { Facebook, Instagram, Phone, Mail } from "lucide-react";
 import logo from "@/assets/logo.png";
-
-const links = [
-  { to: "/", label: "Почетна" },
-  { to: "/za-nas", label: "За нас" },
-  { to: "/kontakt", label: "Контакт" },
-] as const;
+import {
+  getLocaleCopy,
+  getLocaleFromPathname,
+  getLocalizedNav,
+  getPathForLocale,
+} from "@/lib/i18n";
+import { useLocation } from "@tanstack/react-router";
 
 export function Footer() {
+  const location = useLocation();
+  const locale = getLocaleFromPathname(location.pathname);
+  const copy = getLocaleCopy(locale).footer;
+  const links = getLocalizedNav(locale);
+
   return (
     <footer className="bg-brand text-brand-foreground">
       <div className="max-w-7xl mx-auto px-6 md:px-8 py-12 grid gap-10 md:grid-cols-3">
         <div>
           <h3 className="font-display uppercase tracking-wider text-sm mb-4 text-brand-accent">
-            Навигација
+            {copy.navigation}
           </h3>
           <ul className="space-y-2">
-            {links.map((l) => (
-              <li key={l.to}>
-                <Link to={l.to} className="text-white/85 hover:text-white transition-colors">
-                  {l.label}
+            {links.map((link) => (
+              <li key={link.page}>
+                <Link
+                  to={getPathForLocale(locale, link.page)}
+                  className="text-white/85 hover:text-white transition-colors"
+                >
+                  {link.label}
                 </Link>
               </li>
             ))}
@@ -57,7 +66,7 @@ export function Footer() {
 
         <div className="md:text-right">
           <h3 className="font-display uppercase tracking-wider text-sm mb-4 text-brand-accent">
-            Контакт
+            {copy.contact}
           </h3>
           <ul className="space-y-2">
             <li className="flex md:justify-end items-center gap-2">
@@ -77,7 +86,7 @@ export function Footer() {
       </div>
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-6 md:px-8 py-4 text-center text-sm text-white/60">
-          © {new Date().getFullYear()} Грга Транс. Сите права задржани.
+          © {new Date().getFullYear()} Grga Trans. {copy.rights}
         </div>
       </div>
     </footer>

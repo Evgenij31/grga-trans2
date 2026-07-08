@@ -12,6 +12,12 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as ZaNasRouteImport } from './routes/za-nas'
 import { Route as KontaktRouteImport } from './routes/kontakt'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as SqIndexRouteImport } from './routes/sq/index'
+import { Route as EnIndexRouteImport } from './routes/en/index'
+import { Route as SqZaNasRouteImport } from './routes/sq/za-nas'
+import { Route as SqKontaktRouteImport } from './routes/sq/kontakt'
+import { Route as EnZaNasRouteImport } from './routes/en/za-nas'
+import { Route as EnKontaktRouteImport } from './routes/en/kontakt'
 
 const ZaNasRoute = ZaNasRouteImport.update({
   id: '/za-nas',
@@ -28,35 +34,117 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SqIndexRoute = SqIndexRouteImport.update({
+  id: '/sq/',
+  path: '/sq/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnIndexRoute = EnIndexRouteImport.update({
+  id: '/en/',
+  path: '/en/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SqZaNasRoute = SqZaNasRouteImport.update({
+  id: '/sq/za-nas',
+  path: '/sq/za-nas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SqKontaktRoute = SqKontaktRouteImport.update({
+  id: '/sq/kontakt',
+  path: '/sq/kontakt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnZaNasRoute = EnZaNasRouteImport.update({
+  id: '/en/za-nas',
+  path: '/en/za-nas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnKontaktRoute = EnKontaktRouteImport.update({
+  id: '/en/kontakt',
+  path: '/en/kontakt',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/kontakt': typeof KontaktRoute
   '/za-nas': typeof ZaNasRoute
+  '/en/kontakt': typeof EnKontaktRoute
+  '/en/za-nas': typeof EnZaNasRoute
+  '/sq/kontakt': typeof SqKontaktRoute
+  '/sq/za-nas': typeof SqZaNasRoute
+  '/en/': typeof EnIndexRoute
+  '/sq/': typeof SqIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/kontakt': typeof KontaktRoute
   '/za-nas': typeof ZaNasRoute
+  '/en/kontakt': typeof EnKontaktRoute
+  '/en/za-nas': typeof EnZaNasRoute
+  '/sq/kontakt': typeof SqKontaktRoute
+  '/sq/za-nas': typeof SqZaNasRoute
+  '/en': typeof EnIndexRoute
+  '/sq': typeof SqIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/kontakt': typeof KontaktRoute
   '/za-nas': typeof ZaNasRoute
+  '/en/kontakt': typeof EnKontaktRoute
+  '/en/za-nas': typeof EnZaNasRoute
+  '/sq/kontakt': typeof SqKontaktRoute
+  '/sq/za-nas': typeof SqZaNasRoute
+  '/en/': typeof EnIndexRoute
+  '/sq/': typeof SqIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/kontakt' | '/za-nas'
+  fullPaths:
+    | '/'
+    | '/kontakt'
+    | '/za-nas'
+    | '/en/kontakt'
+    | '/en/za-nas'
+    | '/sq/kontakt'
+    | '/sq/za-nas'
+    | '/en/'
+    | '/sq/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/kontakt' | '/za-nas'
-  id: '__root__' | '/' | '/kontakt' | '/za-nas'
+  to:
+    | '/'
+    | '/kontakt'
+    | '/za-nas'
+    | '/en/kontakt'
+    | '/en/za-nas'
+    | '/sq/kontakt'
+    | '/sq/za-nas'
+    | '/en'
+    | '/sq'
+  id:
+    | '__root__'
+    | '/'
+    | '/kontakt'
+    | '/za-nas'
+    | '/en/kontakt'
+    | '/en/za-nas'
+    | '/sq/kontakt'
+    | '/sq/za-nas'
+    | '/en/'
+    | '/sq/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   KontaktRoute: typeof KontaktRoute
   ZaNasRoute: typeof ZaNasRoute
+  EnKontaktRoute: typeof EnKontaktRoute
+  EnZaNasRoute: typeof EnZaNasRoute
+  SqKontaktRoute: typeof SqKontaktRoute
+  SqZaNasRoute: typeof SqZaNasRoute
+  EnIndexRoute: typeof EnIndexRoute
+  SqIndexRoute: typeof SqIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -82,6 +170,48 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sq/': {
+      id: '/sq/'
+      path: '/sq'
+      fullPath: '/sq/'
+      preLoaderRoute: typeof SqIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/': {
+      id: '/en/'
+      path: '/en'
+      fullPath: '/en/'
+      preLoaderRoute: typeof EnIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sq/za-nas': {
+      id: '/sq/za-nas'
+      path: '/sq/za-nas'
+      fullPath: '/sq/za-nas'
+      preLoaderRoute: typeof SqZaNasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sq/kontakt': {
+      id: '/sq/kontakt'
+      path: '/sq/kontakt'
+      fullPath: '/sq/kontakt'
+      preLoaderRoute: typeof SqKontaktRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/za-nas': {
+      id: '/en/za-nas'
+      path: '/en/za-nas'
+      fullPath: '/en/za-nas'
+      preLoaderRoute: typeof EnZaNasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/kontakt': {
+      id: '/en/kontakt'
+      path: '/en/kontakt'
+      fullPath: '/en/kontakt'
+      preLoaderRoute: typeof EnKontaktRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -89,6 +219,12 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   KontaktRoute: KontaktRoute,
   ZaNasRoute: ZaNasRoute,
+  EnKontaktRoute: EnKontaktRoute,
+  EnZaNasRoute: EnZaNasRoute,
+  SqKontaktRoute: SqKontaktRoute,
+  SqZaNasRoute: SqZaNasRoute,
+  EnIndexRoute: EnIndexRoute,
+  SqIndexRoute: SqIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

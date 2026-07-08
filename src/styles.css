@@ -61,6 +61,7 @@
   --brand-accent: oklch(0.6 0.22 27);
 
   --shadow-soft: 0 10px 30px -10px color-mix(in oklab, var(--brand) 25%, transparent);
+  --shadow-bold: 0 30px 50px -10px color-mix(in oklab, var(--brand) 5%, transparent);
   --gradient-overlay: linear-gradient(180deg, color-mix(in oklab, var(--brand) 55%, transparent) 0%, color-mix(in oklab, black 70%, transparent) 100%);
 }
 

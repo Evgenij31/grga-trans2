@@ -22,6 +22,8 @@ import serviceCoal from "@/assets/service-coal.jpg";
 import serviceSand from "@/assets/service-sand.jpg";
 import serviceStone from "@/assets/service-stone.jpg";
 import { getLocaleCopy, type Locale } from "@/lib/i18n";
+import { sendEmailServerFn } from "@/routes/api/send-email";
+import { useMutation } from "@tanstack/react-query";
 
 const heroSlides = [hero1, hero2, hero3];
 const galleryImages = [g1, g2, g3, g4, g5, g6, g7, g8, g9, g10, g11, g12];
@@ -447,9 +449,21 @@ function ContactCards({ locale }: { locale: Locale }) {
 function ContactForm({ locale }: { locale: Locale }) {
   const copy = getLocaleCopy(locale).contact.form;
   const [data, setData] = useState({ name: "", email: "", message: "" });
-  const [sending, setSending] = useState(false);
 
-  const onSubmit = (event: React.FormEvent) => {
+  // TanStack Query handles loading states cleanly
+  const mutation = useMutation({
+    mutationFn: (variables: { name: string; email: string; message: string }) =>
+      sendEmailServerFn({ data: variables }),
+    onSuccess: () => {
+      toast.success(copy.success);
+      setData({ name: "", email: "", message: "" });
+    },
+    onError: () => {
+      toast.error("Something went wrong. Please try again.");
+    },
+  });
+
+  const onSubmit = (event: React.SubmitEvent<HTMLFormElement>) => {
     event.preventDefault();
     const name = data.name.trim();
     const email = data.email.trim();
@@ -460,12 +474,8 @@ function ContactForm({ locale }: { locale: Locale }) {
       return toast.error(copy.errors.email);
     if (!message || message.length > 1000) return toast.error(copy.errors.message);
 
-    setSending(true);
-    setTimeout(() => {
-      toast.success(copy.success);
-      setData({ name: "", email: "", message: "" });
-      setSending(false);
-    }, 700);
+    // Pass the payload directly
+    mutation.mutate({ name, email, message });
   };
 
   return (
@@ -531,10 +541,10 @@ function ContactForm({ locale }: { locale: Locale }) {
           </div>
           <button
             type="submit"
-            disabled={sending}
+            disabled={mutation.isPending}
             className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-brand px-8 py-3 font-display text-sm uppercase tracking-wider text-brand-foreground transition-colors hover:bg-brand-accent disabled:opacity-60 md:w-auto"
           >
-            {sending ? copy.sending : copy.submit}
+            {mutation.isPending ? copy.sending : copy.submit}
           </button>
         </form>
       </div>

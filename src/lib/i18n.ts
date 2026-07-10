@@ -47,24 +47,28 @@ export const siteCopy = {
       label: "За нас",
       slides: [
         {
+          title: "Добредојдовте",
+          text: "Добредојдовте во GRGA Trans, компанија со долгогодишно искуство, сигурност и професионален пристап во областа на транспортот и логистиката.",
+        },
+        {
           title: "Нашата приказна",
-          text: "Грга Транс е основана во 1999 година со визија да обезбеди сигурен и професионален киперски транспорт. Над две децении подоцна, продолжуваме да ги поврзуваме градилиштата, рудниците и фабриките низ целата држава.",
+          text: "Компанијата е основана во 1999 година со основна дејност товарен патен транспорт, со посебен фокус на киперски транспорт, како на домашниот, така и на меѓународниот пазар. Благодарение на посветеноста, квалитетната услуга и довербата од клиентите, низ годините успешно се развивавме и го проширивме опсегот на нашите услуги.",
         },
         {
-          title: "Модерна флота",
-          text: "Располагаме со над 21 кипер и специјализирани возила. Редовно ги одржуваме и обновуваме за да гарантираме безбедност, ефикасност и минимално влијание врз животната средина.",
+          title: "Решенија за киперски транспорт",
+          text: "Денес, GRGA Trans нуди комплетни решенија поврзани со киперскиот транспорт, вклучувајќи: \n- транспорт на различни видови материјали, \n- утовар и истовар, \n- ископи, \n- дробење и обработка на минерални суровини во рударството.",
         },
         {
-          title: "Искусен тим",
-          text: "Нашите 30+ вработени се срцето на компанијата. Возачите со долгогодишно искуство, логистичарите и техничкиот персонал работат заедно за да обезбедат секоја пратка да стигне навреме.",
+          title: "Современа механизација и стручен тим",
+          text: "Со современа механизација, стручен тим и постојано инвестирање во развојот, компанијата успешно одговара на потребите и на најсложените проекти.",
         },
         {
-          title: "Нашите вредности",
-          text: "Доверба, точност и безбедност. Овие три принципи ги водат сите наши одлуки — од изборот на возила, преку планирањето на рутите, до односот со клиентите и партнерите.",
+          title: "Лиценцирана и овластена компанија",
+          text: "Од 2020 година, компанијата е лиценцирана и овластена за управување со неопасен отпад, што опфаќа собирање, утовар и транспорт согласно сите законски стандарди и еколошки прописи.",
         },
         {
-          title: "Поглед напред",
-          text: "Продолжуваме да инвестираме во нови возила, дигитални системи за следење и обука на нашиот тим. Целта ни е да останеме лидер во киперскиот транспорт во регионот.",
+          title: "Нашата мисија",
+          text: "Нашата мисија е да обезбедиме сигурна, навремена и професионална услуга, градејќи долгорочна доверба со нашите партнери и клиенти. Со повеќе од две децении искуство, GRGA Trans претставува стабилен и доверлив партнер во областа на транспортот, рударството и логистичките услуги.",
         },
       ],
     },
@@ -167,27 +171,31 @@ export const siteCopy = {
       gallery: { label: "Gallery", heading: "Our work in action" },
     },
     about: {
-      label: "About us",
+      label: "About Us",
       slides: [
         {
-          title: "Our story",
-          text: "Grga Trans was founded in 1999 with a vision to provide reliable and professional dumper transport. More than two decades later, we continue connecting construction sites, mines, and factories across the country.",
+          title: "Welcome",
+          text: "Welcome to GRGA Trans, a company with years of experience, reliability, and a professional approach in the field of transport and logistics.",
         },
         {
-          title: "Modern fleet",
-          text: "We operate more than 21 dump trucks and specialized vehicles. We maintain and renew them regularly to ensure safety, efficiency, and minimal environmental impact.",
+          title: "Our Story",
+          text: "The company was founded in 1999 with its core activity being road freight transport, with a special focus on tipper/tipping transport, both in the domestic and international markets. Thanks to our dedication, high-quality service, and the trust of our clients, we have successfully developed and expanded the scope of our services over the years.",
         },
         {
-          title: "Experienced team",
-          text: "Our 30+ employees are the heart of the company. Experienced drivers, logistics staff, and technicians work together to make sure every shipment arrives on time.",
+          title: "Tipper Transport Solutions",
+          text: "Today, GRGA Trans offers complete solutions related to tipper transport, including: \n- transport of various types of materials, \n- loading and unloading, \n- excavations, \n- crushing and processing of mineral raw materials in mining.",
         },
         {
-          title: "Our values",
-          text: "Trust, precision, and safety. These three principles guide every decision we make, from vehicle selection to route planning and our relationships with clients and partners.",
+          title: "Modern Machinery and Expert Team",
+          text: "With modern machinery, an expert team, and continuous investment in development, the company successfully responds to the needs of even the most complex projects.",
         },
         {
-          title: "Looking ahead",
-          text: "We keep investing in new vehicles, digital tracking systems, and team training. Our goal is to remain a leader in dumper transport in the region.",
+          title: "Licensed and Authorized Company",
+          text: "Since 2020, the company has been licensed and authorized for non-hazardous waste management, which includes collection, loading, and transport in accordance with all legal standards and environmental regulations.",
+        },
+        {
+          title: "Our Mission",
+          text: "Our mission is to provide reliable, timely, and professional service, building long-term trust with our partners and clients. With more than two decades of experience, GRGA Trans represents a stable and reliable partner in the field of transport, mining, and logistics services.",
         },
       ],
     },
@@ -288,27 +296,31 @@ export const siteCopy = {
       gallery: { label: "Galeria", heading: "Puna jonë në veprim" },
     },
     about: {
-      label: "Rreth nesh",
+      label: "Rreth Nesh",
       slides: [
         {
-          title: "Historia jonë",
-          text: "Grga Trans u themelua në vitin 1999 me vizionin për të ofruar transport të besueshëm dhe profesional me dumper. Më shumë se dy dekada më vonë, vazhdojmë të lidhim kantierët, minierat dhe fabrikat në mbarë vendin.",
+          title: "Mirëseerdhët",
+          text: "Mirëseerdhët në GRGA Trans, një kompani me përvojë shumëvjeçare, besueshmëri dhe qasje profesionale në fushën e transportit dhe logjistikës.",
         },
         {
-          title: "Flotë moderne",
-          text: "Ne disponojmë mbi 21 kamionë dumper dhe automjete të specializuara. I mirëmbajmë dhe i rinovojmë rregullisht për të garantuar siguri, efikasitet dhe ndikim minimal në mjedis.",
+          title: "Historia Jonë",
+          text: "Kompania u themelua në vitin 1999 me veprimtari kryesore transportin rrugor të mallrave, me fokus të veçantë në transportin me kipar (me rrokullisje), si në tregun vendas ashtu edhe në atë ndërkombëtar. Falë përkushtimit, shërbimit cilësor dhe besimit të klientëve, gjatë viteve jemi zhvilluar me sukses dhe kemi zgjeruar gamën e shërbimeve tona.",
         },
         {
-          title: "Ekip me përvojë",
-          text: "30+ punonjësit tanë janë zemra e kompanisë. Shoferë me përvojë, staf logjistik dhe teknikë punojnë së bashku që çdo dërgesë të arrijë në kohë.",
+          title: "Zgjidhje për Transportin me Kipar",
+          text: "Sot, GRGA Trans ofron zgjidhje të plota lidhur me transportin me kipar, duke përfshirë: \n- transportin e llojeve të ndryshme të materialeve, \n- ngarkimin dhe shkarkimin, \n- gërmimet, \n- thërrmimin dhe përpunimin e lëndëve të para minerale në miniera.",
         },
         {
-          title: "Vlerat tona",
-          text: "Besimi, saktësia dhe siguria. Këto tre parime udhëheqin çdo vendim, nga zgjedhja e automjeteve deri te planifikimi i rrugëve dhe marrëdhëniet me klientët dhe partnerët.",
+          title: "Makineri Moderne dhe Ekip Ekspertësh",
+          text: "Me makineri moderne, një ekip ekspertësh dhe investime të vazhdueshme në zhvillim, kompania u përgjigjet me sukses nevojave të projekteve më komplekse.",
         },
         {
-          title: "Duke ecur përpara",
-          text: "Vazhdojmë të investojmë në automjete të reja, sisteme digjitale gjurmimi dhe trajnimin e ekipit. Qëllimi ynë është të mbetemi lider në transportin me dumper në rajon.",
+          title: "Kompani e Licencuar dhe e Autorizuar",
+          text: "Nga viti 2020, kompania është e licencuar dhe e autorizuar për menaxhimin e mbetjeve jorrezikshme, gjë që përfshin grumbullimin, ngarkimin dhe transportin në përputhje me të gjitha standardet ligjore dhe rregulloret mjedisore.",
+        },
+        {
+          title: "Misioni Ynë",
+          text: "Misioni ynë është të ofrojmë shërbim të sigurt, në kohë dhe profesional, duke ndërtuar besim afatgjatë me partnerët dhe klientët tanë. Me më shumë se dy dekada përvojë, GRGA Trans përfaqëson një partner stabil dhe të besueshëm në fushën e transportit, minierave dhe shërbimeve logjistike.",
         },
       ],
     },

@@ -286,7 +286,7 @@ export function AboutPage({ locale }: { locale: Locale }) {
   const copy = getLocaleCopy(locale).about;
   const [index, setIndex] = useState(0);
   const total = copy.slides.length;
-  const slideImages = [hero1, hero2, hero3, aboutTeam, g9];
+  const slideImages = [hero1, hero2, hero3, aboutTeam, g9, g10];
   const go = (next: number) => setIndex(((next % total) + total) % total);
 
   return (
@@ -316,7 +316,7 @@ export function AboutPage({ locale }: { locale: Locale }) {
               <h1 className="mb-6 text-balance font-display text-3xl uppercase drop-shadow-lg md:text-5xl">
                 {copy.slides[index].title}
               </h1>
-              <p className="max-w-xl text-balance text-lg leading-relaxed text-white/90 md:text-xl">
+              <p className="max-w-xl text-balance text-lg leading-relaxed text-white/90 md:text-xl whitespace-pre-line">
                 {copy.slides[index].text}
               </p>
             </div>

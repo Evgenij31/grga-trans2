@@ -20,16 +20,24 @@ export const siteCopy = {
       },
       services: [
         {
-          title: "Транспорт на јаглен",
-          desc: "Сигурен и навремен превоз на јаглен за енергетски и индустриски потреби.",
+          title: "Контејнерски транспорт",
+          desc: "Сигурен и ефикасен транспорт на контејнери за вашиот товарен и логистички синџир.",
         },
         {
-          title: "Транспорт на песок",
-          desc: "Достава на песок до градилишта и фабрики низ целата држава.",
+          title: "Транспорт со церада",
+          desc: "Флексибилен и безбеден транспорт на разни видови стока со возила опремени со церада за оптимална заштита.",
         },
         {
-          title: "Транспорт на камен",
-          desc: "Превоз на дробен камен и градежни агрегати со современа киперска флота.",
+          title: "Киперски транспорт",
+          desc: "Брз и сигурен транспорт на рефусни материјали, песок, камен и земја со современа киперска флота.",
+        },
+        {
+          title: "Цистерна",
+          desc: "Професионален транспорт на течни материјали со специјализирани цистерни кои ги исполнуваат сите стандарди.",
+        },
+        {
+          title: "Комбе до 2 тони",
+          desc: "Брзи и практични испораки за помали товарии и пратки со возила со носивост до 2 тони.",
         },
       ],
       stats: {
@@ -147,16 +155,24 @@ export const siteCopy = {
       hero: { title: "Grga Trans", subtitle: "Connecting destinations, building trust" },
       services: [
         {
-          title: "Coal transport",
-          desc: "Reliable and timely coal transport for energy and industrial needs.",
+          title: "Container transport",
+          desc: "Reliable and efficient container transport for your supply chain.",
         },
         {
-          title: "Sand transport",
-          desc: "Sand delivery to construction sites and factories nationwide.",
+          title: "Curtainsider transport",
+          desc: "Flexible and safe transport of various goods with tipper trucks for optimal protection.",
         },
         {
-          title: "Stone transport",
-          desc: "Transport of crushed stone and construction aggregates with a modern dumper fleet.",
+          title: "Tipper transport",
+          desc: "Fast and secure transport of bulk materials, sand, stone, and earth with a modern tipper fleet.",
+        },
+        {
+          title: "Dumper transport",
+          desc: "Professional transport of liquid materials with specialized tankers that meet all standards.",
+        },
+        {
+          title: "Van transport up to 2 tons",
+          desc: "Quick and practical deliveries for smaller loads and parcels with vehicles up to 2 tons.",
         },
       ],
       stats: {
@@ -275,13 +291,21 @@ export const siteCopy = {
       hero: { title: "Grga Trans", subtitle: "Lidhim destinacione, ndërtojmë besim" },
       services: [
         {
-          title: "Transport qymyri",
-          desc: "Transport i besueshëm dhe në kohë i qymyrit për nevoja energjetike dhe industriale.",
+          title: "Transport me kontejnerë",
+          desc: "Transport i besueshëm dhe efikas i kontejnerëve për zinxhirin tuaj të furnizimit.",
         },
         { title: "Transport rëre", desc: "Dorëzim rëre në kantierë dhe fabrika në mbarë vendin." },
         {
-          title: "Transport guri",
-          desc: "Transport i gurit të thyer dhe agregateve të ndërtimit me flotë moderne dumpersh.",
+          title: "Transport me kamionë me tenda",
+          desc: "Transport fleksibël dhe i sigurt i mallrave të ndryshme me kamionë të pajisur me tenda për mbrojtje optimale.",
+        },
+        {
+          title: "Cisternë",
+          desc: "Transport profesional i materialeve të lëngshme me cisterna të specializuara që përmbushin të gjitha standardet.",
+        },
+        {
+          title: "Transport me kamionë me tipper",
+          desc: "Transport i shpejtë dhe i sigurt i materialeve në masë, rërës, gurit dhe tokës me një flotë moderne kamionësh me tipper.",
         },
       ],
       stats: {

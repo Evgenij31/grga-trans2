@@ -1,5 +1,14 @@
-import { useEffect, useRef, useState } from "react";
-import { ChevronLeft, ChevronRight, Mountain, Package, Truck } from "lucide-react";
+import { useEffect, useRef, useState, useCallback } from "react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Mountain,
+  Package,
+  Truck,
+  Container,
+  Barrel,
+  Van,
+} from "lucide-react";
 import { toast } from "sonner";
 import { Toaster } from "@/components/ui/sonner";
 import aboutTeam from "@/assets/about-team.jpg";
@@ -21,6 +30,9 @@ import hero3 from "@/assets/hero-3.jpg";
 import serviceCoal from "@/assets/service-coal.jpg";
 import serviceSand from "@/assets/service-sand.jpg";
 import serviceStone from "@/assets/service-stone.jpg";
+import serviceTipper from "@/assets/service-tipper-3.jpg";
+import serviceTanker from "@/assets/service-tanker-truck.jpg";
+import serviceCurtainsider from "@/assets/service-curtainsider.jpg";
 import { getLocaleCopy, type Locale } from "@/lib/i18n";
 import { sendEmailServerFn } from "@/routes/api/send-email";
 import { useMutation } from "@tanstack/react-query";
@@ -76,18 +88,20 @@ function HeroSlideshow({ locale }: { locale: Locale }) {
 function MissionSection({ locale }: { locale: Locale }) {
   const copy = getLocaleCopy(locale).home;
   const services = [
-    { icon: Mountain, img: serviceCoal, ...copy.services[0] },
-    { icon: Package, img: serviceSand, ...copy.services[1] },
-    { icon: Truck, img: serviceStone, ...copy.services[2] },
+    { icon: Container, img: serviceTipper, ...copy.services[0] },
+    { icon: Truck, img: serviceCurtainsider, ...copy.services[1] },
+    { icon: Mountain, img: serviceStone, ...copy.services[2] },
+    { icon: Barrel, img: serviceTanker, ...copy.services[3] },
+    { icon: Van, img: serviceStone, ...copy.services[4] },
   ];
 
   return (
     <section className="bg-background py-20 md:py-28">
-      <div className="mx-auto mt-16 grid max-w-7xl gap-8 px-6 md:grid-cols-3">
+      <div className="mx-auto mt-16 flex max-w-7xl gap-8 px-8 flex-col justify-center align-center flex-wrap md:mt-20 md:flex-row">
         {services.map((service) => (
           <article
             key={service.title}
-            className="group overflow-hidden rounded-xl border border-border bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[(--shadow-soft)]"
+            className="overflow-hidden rounded-xl border border-border bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[(--shadow-soft)] w-full md:w-[calc(32%-1rem)]"
           >
             <div className="aspect-4/3 overflow-hidden">
               <img
@@ -289,7 +303,34 @@ export function AboutPage({ locale }: { locale: Locale }) {
   const [index, setIndex] = useState(0);
   const total = copy.slides.length;
   const slideImages = [hero1, hero2, hero3, aboutTeam, g9, g10];
-  const go = (next: number) => setIndex(((next % total) + total) % total);
+
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  const go = useCallback(
+    (next: number) => {
+      setIndex(((next % total) + total) % total);
+
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+      intervalRef.current = setInterval(() => {
+        setIndex((prevIndex) => (prevIndex + 1) % total);
+      }, 4000);
+    },
+    [total],
+  );
+
+  useEffect(() => {
+    intervalRef.current = setInterval(() => {
+      setIndex((prevIndex) => (prevIndex + 1) % total);
+    }, 4000);
+
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, [total, go]);
 
   return (
     <section className="relative min-h-screen w-full overflow-hidden pt-16 md:pt-20">

@@ -179,24 +179,28 @@ function StatsSection({ locale }: { locale: Locale }) {
   const copy = getLocaleCopy(locale).home;
   const stats = [
     { label: copy.stats.items[0], value: 30 },
-    { label: copy.stats.items[1], value: 21 },
-    { label: copy.stats.items[2], value: 12 },
-    { label: copy.stats.items[3], value: 420000 },
+    { label: copy.stats.items[1], value: 25 },
+    { label: copy.stats.items[2], value: 5 },
+    { label: copy.stats.items[3], value: 50 }, // Updated value for passed kilometers
   ];
 
   return (
     <section className="bg-brand py-20 text-brand-foreground md:py-28">
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid grid-cols-2 gap-0 text-center md:grid-cols-4">
-          {stats.map((stat) => (
+          {stats.map((stat, index) => (
             <div
               key={stat.label}
-              className="border-2 border-brand-foreground/20 bg-secondary/5 py-12 backdrop-blur-sm md:py-16"
+              className="border-2 border-brand bg-secondary/85 py-12 backdrop-blur-sm md:py-16 first:rounded-l-2xl last:rounded-r-2xl"
             >
               <div className="font-display text-4xl text-brand-accent md:text-6xl">
-                <CountUp end={stat.value} locale={locale} />
+                <CountUp
+                  end={stat.value}
+                  locale={locale}
+                  suffix={index === 3 ? "M+" : "+"} // Added condition for the last number to include 'M' at the end
+                />
               </div>
-              <div className="mt-2 text-sm uppercase tracking-wider text-white/80 md:text-base">
+              <div className="mt-2 text-sm uppercase tracking-wider text-brand md:text-base">
                 {stat.label}
               </div>
             </div>
@@ -458,7 +462,7 @@ function ContactCards({ locale }: { locale: Locale }) {
           {copy.cards.map((card) => (
             <div
               key={card.title}
-              className="rounded-xl border border-border bg-card p-8 text-center transition-shadow hover:shadow-[(--shadow-soft)]"
+              className="rounded-xl border border-border bg-card p-8 text-center transition-all shadow-xs hover:shadow-md hover:-translate-y-1"
             >
               <h3 className="mb-4 font-display text-xl uppercase text-foreground">{card.title}</h3>
               <ul className="space-y-1.5">

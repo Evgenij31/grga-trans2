@@ -62,26 +62,41 @@
 
   --shadow-soft: 0 10px 30px -10px color-mix(in oklab, var(--brand) 25%, transparent);
   --shadow-bold: 0 30px 50px -10px color-mix(in oklab, var(--brand) 5%, transparent);
-  --gradient-overlay: linear-gradient(180deg, color-mix(in oklab, var(--brand) 55%, transparent) 0%, color-mix(in oklab, black 70%, transparent) 100%);
+  --gradient-overlay: linear-gradient(
+    180deg,
+    color-mix(in oklab, var(--brand) 55%, transparent) 0%,
+    color-mix(in oklab, black 70%, transparent) 100%
+  );
 }
 
 @layer base {
-  * { border-color: var(--color-border); }
-  html { scroll-behavior: smooth; }
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
   }
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     font-family: var(--font-display);
     letter-spacing: -0.01em;
   }
 }
 
 @layer utilities {
-  .bg-hero-overlay { background: var(--gradient-overlay); }
-  .text-balance { text-wrap: balance; }
+  .bg-hero-overlay {
+    background: var(--gradient-overlay);
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
   .parallax-bg {
     background-size: cover;
     background-position: center;
@@ -89,6 +104,8 @@
     background-attachment: fixed;
   }
   @media (max-width: 768px) {
-    .parallax-bg { background-attachment: scroll; }
+    .parallax-bg {
+      background-attachment: scroll;
+    }
   }
 }

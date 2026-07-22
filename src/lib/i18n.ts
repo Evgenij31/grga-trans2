@@ -45,7 +45,7 @@ export const siteCopy = {
         heading: "Повеќе од две децении искуство",
         items: ["Вработени", "Возила", "Складишта", "Изминати километри"],
         paragraphs: [
-          "Од нашето основање во 1999 година, Грга Транс расте заедно со своите клиенти, градејќи партнерства засновани на доверба, точност и професионализам. Нашата флота од модерни киперски возила секојдневно поминува километри низ Македонија и регионот.",
+          "Од нашето основање во 1999 година, Грга Транс расте заедно со своите клиенти, градејќи партнерства засновани на доверба, точност и професионализам. Нашата флота од модерни транспортни возила секојдневно поминува километри низ Македонија и регионот.",
           "Со искусен тим возачи и логистичари, секоја пратка ја извршуваме сигурно, навреме и со највисок стандард на безбедност.",
         ],
       },
@@ -89,20 +89,19 @@ export const siteCopy = {
         {
           title: "Телефон",
           items: [
-            { label: "070/309-403", href: "tel:070309403" },
             { label: "076/552-462", href: "tel:076552462" },
             { label: "075/746-066", href: "tel:075746066" },
           ],
         },
         {
           title: "Локација",
-          items: ["ул. Пример 123", "2300 Кочани", "Северна Македонија"],
+          items: ["ул. Маршал Тито б.б", "2333 Спанчево", "Северна Македонија"],
         },
         {
           title: "Email",
           items: [
             { label: "grgadoo99@gmail.com", href: "mailto:grgadoo99@gmail.com" },
-            { label: "contact@grga-trans.com", href: "mailto:contact@grga-trans.com" },
+            { label: "contact@grga.mk", href: "mailto:contact@grga.mk" },
           ],
         },
       ],
@@ -180,7 +179,7 @@ export const siteCopy = {
         heading: "More than two decades of experience",
         items: ["Employees", "Vehicles", "Warehouses", "Kilometers driven"],
         paragraphs: [
-          "Since 1999, Grga Trans has grown with its clients, building partnerships based on trust, accuracy, and professionalism. Our fleet of modern dump trucks covers kilometers every day across North Macedonia and the region.",
+          "Since 1999, Grga Trans has grown with its clients, building partnerships based on trust, accuracy, and professionalism. Our fleet of modern transport trucks covers kilometers every day across North Macedonia and the region.",
           "With an experienced team of drivers and logistics specialists, we deliver every shipment safely, on time, and with the highest safety standards.",
         ],
       },
@@ -224,17 +223,19 @@ export const siteCopy = {
         {
           title: "Phone",
           items: [
-            { label: "070/309-403", href: "tel:070309403" },
             { label: "076/552-462", href: "tel:076552462" },
             { label: "075/746-066", href: "tel:075746066" },
           ],
         },
-        { title: "Location", items: ["Example St. 123", "2300 Kochani", "North Macedonia"] },
+        {
+          title: "Location",
+          items: ["st. Marshal Tito no. no", "2333 Spanchevo", "North Macedonia"],
+        },
         {
           title: "Email",
           items: [
             { label: "grgadoo99@gmail.com", href: "mailto:grgadoo99@gmail.com" },
-            { label: "contact@grga-trans.com", href: "mailto:contact@grga-trans.com" },
+            { label: "contact@grga.mk", href: "mailto:contact@grga.mk" },
           ],
         },
       ],
@@ -357,17 +358,19 @@ export const siteCopy = {
         {
           title: "Telefon",
           items: [
-            { label: "070/309-403", href: "tel:070309403" },
             { label: "076/552-462", href: "tel:076552462" },
             { label: "075/746-066", href: "tel:075746066" },
           ],
         },
-        { title: "Vendndodhja", items: ["Rr. Shembull 123", "2300 Koçan", "Maqedonia e Veriut"] },
+        {
+          title: "Vendndodhja",
+          items: ["Rr. Marshal Tito b.b", "2333 Spanchevo", "Maqedonia e Veriut"],
+        },
         {
           title: "Email",
           items: [
             { label: "grgadoo99@gmail.com", href: "mailto:grgadoo99@gmail.com" },
-            { label: "contact@grga-trans.com", href: "mailto:contact@grga-trans.com" },
+            { label: "contact@grga.mk", href: "mailto:contact@grga.mk" },
           ],
         },
       ],

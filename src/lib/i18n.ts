@@ -21,23 +21,27 @@ export const siteCopy = {
       services: [
         {
           title: "Контејнерски транспорт",
-          desc: "Сигурен и ефикасен транспорт на контејнери за вашиот товарен и логистички синџир.",
+          desc: "Сигурен и ефикасен транспорт на контејнери за вашиот товарен и логистички ланец.",
         },
         {
           title: "Транспорт со церада",
-          desc: "Флексибилен и безбеден транспорт на разни видови стока со возила опремени со церада за оптимална заштита.",
+          desc: "Флексибилен и безбеден транспорт на разни видови стока со возила опремени со церада за оптимална и сигурна заштита.",
         },
         {
           title: "Киперски транспорт",
           desc: "Брз и сигурен транспорт на рефусни материјали, песок, камен и земја со современа киперска флота.",
         },
         {
-          title: "Цистерна",
-          desc: "Професионален транспорт на течни материјали со специјализирани цистерни кои ги исполнуваат сите стандарди.",
+          title: "Транспорт со цистерна",
+          desc: "Професионален транспорт на рефусни материјали (цемент, филер и сл.) со специјализирани цистерни кои ги исполнуваат сите стандарди.",
         },
         {
-          title: "Комбе до 2 тони",
+          title: "Транспорт со помало возило",
           desc: "Брзи и практични испораки за помали товарии и пратки со возила со носивост до 2 тони.",
+        },
+        {
+          title: "Транспорт на неопасен отпад",
+          desc: "Нашата компанија поседова дозвола за маневрирање, складирање и транспорт сите видови неопасни отпади.",
         },
       ],
       stats: {
@@ -167,11 +171,15 @@ export const siteCopy = {
         },
         {
           title: "Dumper transport",
-          desc: "Professional transport of liquid materials with specialized tankers that meet all standards.",
+          desc: "Professional transportation of bulk materials (cement, filler, etc.) with specialized tankers that meet all standards.",
         },
         {
           title: "Van transport up to 2 tons",
           desc: "Quick and practical deliveries for smaller loads and parcels with vehicles up to 2 tons.",
+        },
+        {
+          title: "Non-hazardous waste transport",
+          desc: "Our company is licensed for handling, storing, and transporting all types of non-hazardous waste.",
         },
       ],
       stats: {
@@ -301,12 +309,16 @@ export const siteCopy = {
           desc: "Transport fleksibël dhe i sigurt i mallrave të ndryshme me kamionë të pajisur me tenda për mbrojtje optimale.",
         },
         {
-          title: "Cisternë",
-          desc: "Transport profesional i materialeve të lëngshme me cisterna të specializuara që përmbushin të gjitha standardet.",
+          title: "Transport me Cisternë",
+          desc: "Transport profesional i materialeve të mëdha (çimento, mbushës, etj.) me autocisterna të specializuara që plotësojnë të gjitha standardet.",
         },
         {
           title: "Transport me kamionë me tipper",
           desc: "Transport i shpejtë dhe i sigurt i materialeve në masë, rërës, gurit dhe tokës me një flotë moderne kamionësh me tipper.",
+        },
+        {
+          title: "Transporti i mbetjeve jo të rrezikshme",
+          desc: "Kompania jonë ka leje për trajtimin, ruajtjen dhe transportimin e të gjitha llojeve të mbeturinave jo të rrezikshme.",
         },
       ],
       stats: {

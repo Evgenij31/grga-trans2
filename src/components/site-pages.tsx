@@ -8,6 +8,7 @@ import {
   Container,
   Barrel,
   Van,
+  Recycle,
 } from "lucide-react";
 import { toast } from "sonner";
 import { Toaster } from "@/components/ui/sonner";
@@ -88,11 +89,12 @@ function HeroSlideshow({ locale }: { locale: Locale }) {
 function MissionSection({ locale }: { locale: Locale }) {
   const copy = getLocaleCopy(locale).home;
   const services = [
-    { icon: Container, img: serviceTipper, ...copy.services[0] },
-    { icon: Truck, img: serviceCurtainsider, ...copy.services[1] },
     { icon: Mountain, img: serviceStone, ...copy.services[2] },
     { icon: Barrel, img: serviceTanker, ...copy.services[3] },
+    { icon: Container, img: serviceTipper, ...copy.services[0] },
+    { icon: Truck, img: serviceCurtainsider, ...copy.services[1] },
     { icon: Van, img: serviceStone, ...copy.services[4] },
+    { icon: Recycle, img: serviceStone, ...copy.services[5] },
   ];
 
   return (

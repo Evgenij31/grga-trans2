@@ -307,8 +307,8 @@ function GallerySection({ locale }: { locale: Locale }) {
 export function AboutPage({ locale }: { locale: Locale }) {
   const copy = getLocaleCopy(locale).about;
   const [index, setIndex] = useState(0);
-  const total = copy.slides.length;
   const slideImages = [hero1, hero2, hero3, aboutTeam, g9, g10];
+  const total = slideImages.length;
 
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -339,90 +339,94 @@ export function AboutPage({ locale }: { locale: Locale }) {
   }, [total, go]);
 
   return (
-    <section className="relative min-h-screen w-full overflow-hidden pt-16 md:pt-20">
-      {copy.slides.map((slide, idx) => (
+    <section className="relative h-screen w-full overflow-hidden pt-16 md:pt-20">
+      {/* Background sliding images */}
+      {slideImages.map((src, idx) => (
         <div
-          key={idx}
+          key={src}
           className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
             idx === index ? "opacity-100" : "opacity-0"
           }`}
-          style={{ backgroundImage: `url(${slideImages[idx]})` }}
+          style={{ backgroundImage: `url(${src})` }}
           aria-hidden={idx !== index}
         />
       ))}
-      <div className="absolute inset-0 bg-linear-to-r from-primary/75 via-primary/25 to-muted/3" />
+      <div className="absolute inset-0 bg-black/30" />
 
-      <div className="relative z-10 flex min-h-[calc(100vh-5rem)] flex-col">
-        <div className="flex-1 flex items-center">
-          <div className="mx-auto grid w-full max-w-7xl gap-10 px-6 md:grid-cols-2 md:px-12">
-            <div
-              key={index}
-              className="animate-in fade-in slide-in-from-left-8 text-white duration-700"
+      {/* 100vh Fixed Layout Container */}
+      <div className="relative z-10 flex h-[calc(100vh-4rem)] md:h-[calc(100vh-5rem)] flex-col justify-between overflow-hidden">
+        {/* Scrollable Text Area with Hidden Scrollbar */}
+        <div className="relative flex-1 overflow-y-auto px-6 py-8 md:px-12 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+          <div className="mx-auto flex w-full max-w-7xl flex-col gap-10 pb-16">
+            <span className="inline-block text-xs font-display uppercase tracking-[0.25em] text-brand-accent">
+              {copy.label}
+            </span>
+
+            <div className="flex flex-col gap-8">
+              {copy.slides.map((slide, slideIdx) => {
+                const isEven = slideIdx % 2 === 0;
+                return (
+                  <div
+                    key={slideIdx}
+                    className={`flex flex-col md:flex-row ${
+                      isEven ? "md:justify-start" : "md:justify-end"
+                    }`}
+                  >
+                    {/* Frosted Glass Background Card for High Readability */}
+                    <div
+                      className={`text-white max-w-xl space-y-3 rounded-2xl bg-black/40 p-6 backdrop-blur-md border border-white/10 shadow-xl md:p-8 ${
+                        isEven ? "md:text-left" : "md:text-right"
+                      }`}
+                    >
+                      <h1 className="text-balance font-display text-2xl uppercase tracking-wide text-brand-accent drop-shadow-md md:text-3xl">
+                        {slide.title}
+                      </h1>
+                      <p className="text-balance text-base leading-relaxed text-white/95 md:text-lg whitespace-pre-line">
+                        {slide.text}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Down Arrow Indicator for Scrollability */}
+          <div className="sticky bottom-2 left-1/2 -translate-x-1/2 w-max animate-bounce text-white/80 pointer-events-none">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
             >
-              <span className="mb-4 inline-block text-xs font-display uppercase tracking-[0.25em] text-brand-accent">
-                {copy.label}
-              </span>
-              <h1 className="mb-6 text-balance font-display text-3xl uppercase drop-shadow-lg md:text-5xl">
-                {copy.slides[index].title}
-              </h1>
-              <p className="max-w-xl text-balance text-lg leading-relaxed text-white/90 md:text-xl whitespace-pre-line">
-                {copy.slides[index].text}
-              </p>
-            </div>
-            <div className="hidden items-end justify-end md:flex">
-              <div className="flex gap-3">
-                <button
-                  onClick={() => go(index - 1)}
-                  aria-label="Previous"
-                  className="flex h-14 w-14 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-md transition-all hover:border-brand-accent hover:bg-brand-accent"
-                >
-                  <ChevronLeft />
-                </button>
-                <button
-                  onClick={() => go(index + 1)}
-                  aria-label="Next"
-                  className="flex h-14 w-14 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-md transition-all hover:border-brand-accent hover:bg-brand-accent"
-                >
-                  <ChevronRight />
-                </button>
-              </div>
-            </div>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 14l-7 7m0 0l-7-7m7 7V3"
+              />
+            </svg>
           </div>
         </div>
 
-        <div className="flex justify-center gap-3 pb-6 md:hidden">
-          <button
-            onClick={() => go(index - 1)}
-            aria-label="Previous"
-            className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-md"
-          >
-            <ChevronLeft />
-          </button>
-          <button
-            onClick={() => go(index + 1)}
-            aria-label="Next"
-            className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-md"
-          >
-            <ChevronRight />
-          </button>
-        </div>
-
-        <div className="px-4 pb-8 md:pb-10">
-          <div className="mx-auto flex max-w-4xl justify-center gap-2 overflow-x-auto md:gap-3">
-            {copy.slides.map((slide, idx) => (
+        {/* Fixed Thumbnail Navigation at Bottom */}
+        <div className="bg-black/50 backdrop-blur-md px-4 py-3 shrink-0 border-t border-white/10">
+          <div className="mx-auto flex max-w-4xl justify-center gap-2 overflow-x-auto md:gap-3 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+            {slideImages.map((imgSrc, idx) => (
               <button
                 key={idx}
                 onClick={() => go(idx)}
                 aria-label={`Slide ${idx + 1}`}
                 className={`shrink-0 overflow-hidden rounded-md border-2 transition-all ${
                   idx === index
-                    ? "h-16 w-24 border-brand-accent opacity-100 md:h-20 md:w-32"
-                    : "h-12 w-16 border-white/30 opacity-60 hover:opacity-100 md:h-14 md:w-20"
+                    ? "h-12 w-16 border-brand-accent opacity-100 md:h-14 md:w-20"
+                    : "h-10 w-12 border-white/30 opacity-60 hover:opacity-100 md:h-12 md:w-16"
                 }`}
               >
                 <img
-                  src={slideImages[idx]}
-                  alt={slide.title}
+                  src={imgSrc}
+                  alt={`Thumbnail ${idx + 1}`}
                   className="h-full w-full object-cover"
                 />
               </button>

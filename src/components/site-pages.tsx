@@ -193,7 +193,7 @@ function StatsSection({ locale }: { locale: Locale }) {
           {stats.map((stat, index) => (
             <div
               key={stat.label}
-              className="border-2 border-brand bg-secondary/85 py-12 backdrop-blur-sm md:py-16 first:rounded-l-2xl last:rounded-r-2xl"
+              className="border-2 border-brand bg-secondary/85 py-12 backdrop-blur-sm md:py-16 md:first:rounded-l-2xl md:last:rounded-r-2xl"
             >
               <div className="font-display text-4xl text-brand-accent md:text-6xl">
                 <CountUp

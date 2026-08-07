@@ -25,6 +25,12 @@ import g9 from "@/assets/gal-9.jpg";
 import g10 from "@/assets/gal-10.jpg";
 import g11 from "@/assets/gal-11.jpg";
 import g12 from "@/assets/gal-12.jpg";
+import g13 from "@/assets/gal-13.jpg";
+import g14 from "@/assets/gal-14.jpg";
+import g15 from "@/assets/gal-15.jpg";
+import g16 from "@/assets/gal-16.jpg";
+import g17 from "@/assets/gal-17.jpg";
+
 import hero1 from "@/assets/hero-1.jpg";
 import hero2 from "@/assets/hero-2.jpg";
 import hero3 from "@/assets/hero-3.jpg";
@@ -39,7 +45,7 @@ import { sendEmailServerFn } from "@/routes/api/send-email";
 import { useMutation } from "@tanstack/react-query";
 
 const heroSlides = [hero1, hero2, hero3];
-const galleryImages = [g1, g2, g3, g4, g5, g6, g7, g8, g9, g10, g11, g12];
+const galleryImages = [g1, g2, g3, g4, g5, g6, g7, g8, g9, g10, g11, g12, g13, g14, g15, g16, g17];
 
 export function HomePage({ locale }: { locale: Locale }) {
   return (

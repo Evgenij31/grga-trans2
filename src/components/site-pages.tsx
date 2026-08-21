@@ -345,7 +345,7 @@ export function AboutPage({ locale }: { locale: Locale }) {
   }, [total, go]);
 
   return (
-    <section className="relative h-screen w-full overflow-hidden pt-16 md:pt-20">
+    <section className="relative min-h-screen w-full overflow-hidden pt-16 md:pt-20">
       {/* Background sliding images */}
       {slideImages.map((src, idx) => (
         <div
@@ -359,60 +359,32 @@ export function AboutPage({ locale }: { locale: Locale }) {
       ))}
       <div className="absolute inset-0 bg-black/30" />
 
-      {/* 100vh Fixed Layout Container */}
-      <div className="relative z-10 flex h-[calc(100vh-4rem)] md:h-[calc(100vh-5rem)] flex-col justify-between overflow-hidden">
-        {/* Scrollable Text Area with Hidden Scrollbar */}
-        <div className="relative flex-1 overflow-y-auto px-6 py-8 md:px-12 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-          <div className="mx-auto flex w-full max-w-7xl flex-col gap-10 pb-16">
+      {/* Full-page unified content area */}
+      <div className="relative z-10 flex min-h-[calc(100vh-4rem)] flex-col justify-between px-4 py-6 md:min-h-[calc(100vh-5rem)] md:px-8 md:py-8">
+        <div className="mx-auto w-full max-w-7xl rounded-3xl border border-white/15 bg-black/30 p-4 shadow-2xl backdrop-blur-sm md:p-6">
+          <div className="mb-5 md:mb-6">
             <span className="inline-block text-xs font-display uppercase tracking-[0.25em] text-brand-accent">
               {copy.label}
             </span>
-
-            <div className="flex flex-col gap-8">
-              {copy.slides.map((slide, slideIdx) => {
-                const isEven = slideIdx % 2 === 0;
-                return (
-                  <div
-                    key={slideIdx}
-                    className={`flex flex-col md:flex-row ${
-                      isEven ? "md:justify-start" : "md:justify-end"
-                    }`}
-                  >
-                    {/* Frosted Glass Background Card for High Readability */}
-                    <div
-                      className={`text-white max-w-xl space-y-3 rounded-2xl bg-black/40 p-6 backdrop-blur-md border border-white/10 shadow-xl md:p-8 ${
-                        isEven ? "md:text-left" : "md:text-right"
-                      }`}
-                    >
-                      <h1 className="text-balance font-display text-2xl uppercase tracking-wide text-brand-accent drop-shadow-md md:text-3xl">
-                        {slide.title}
-                      </h1>
-                      <p className="text-balance text-base leading-relaxed text-white/95 md:text-lg whitespace-pre-line">
-                        {slide.text}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
           </div>
 
-          {/* Down Arrow Indicator for Scrollability */}
-          <div className="sticky bottom-2 left-1/2 -translate-x-1/2 w-max animate-bounce text-white/80 pointer-events-none">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M19 14l-7 7m0 0l-7-7m7 7V3"
-              />
-            </svg>
+          <div className="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-4 xl:grid-cols-3">
+            {copy.slides.map((slide, slideIdx) => (
+              <article
+                key={slideIdx}
+                className="group rounded-2xl border border-white/15 bg-black/45 p-5 text-white shadow-lg backdrop-blur-xl transition-all duration-300 hover:border-brand-accent/60 hover:bg-black/55 hover:shadow-2xl md:p-6"
+              >
+                <div className="mb-3 inline-flex items-center rounded-full border border-brand-accent/50 bg-brand-accent/15 px-2.5 py-1 text-[10px] font-display uppercase tracking-[0.18em] text-brand-accent">
+                  {slideIdx + 1}
+                </div>
+                <h1 className="mb-3 text-balance font-display text-xl uppercase tracking-wide text-brand-accent drop-shadow md:text-2xl">
+                  {slide.title}
+                </h1>
+                <p className="whitespace-pre-line text-sm leading-relaxed text-white/92 md:text-base">
+                  {slide.text}
+                </p>
+              </article>
+            ))}
           </div>
         </div>
 

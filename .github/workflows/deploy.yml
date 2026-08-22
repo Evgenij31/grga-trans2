@@ -22,17 +22,11 @@ jobs:
           npm install
           npm run build
 
-      - name: List build directory (for debugging)
-        run: |
-          ls -la || true
-          ls -la dist/ || true
-          ls -la .output/ || true
-
       - name: Sync files to cPanel
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: .output/public/ # Change to dist/ if your build outputs there
+          local-dir: dist/
           server-dir: /public_html/grga.mk/

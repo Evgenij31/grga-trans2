@@ -1,8 +1,8 @@
 ---
 deployment:
   tasks:
-    - export DeploymentPath=/home/webevermk/public_html/test.grga.mk
+    - export DeploymentPath=/home/webevermk/public_html
     - /usr/bin/npm install
     - /usr/bin/npm run build
-    - /bin/cp -R dist/* $DeploymentPath/
+    - /bin/cp -R .output/* $DeploymentPath/
     - /bin/rm -f $DeploymentPath/.cpanel.yml

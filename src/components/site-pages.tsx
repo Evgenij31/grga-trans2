@@ -40,6 +40,8 @@ import serviceStone from "@/assets/service-stone.jpg";
 import serviceTipper from "@/assets/service-tipper-3.jpg";
 import serviceTanker from "@/assets/service-tanker-truck.jpg";
 import serviceCurtainsider from "@/assets/service-curtainsider.jpg";
+import serviceNonhazard from "@/assets/service-nonhazard.jpg";
+import serviceSemitruck from "@/assets/service-semitruck.jpg";
 import { getLocaleCopy, type Locale } from "@/lib/i18n";
 import { sendEmailServerFn } from "@/routes/api/send-email";
 import { useMutation } from "@tanstack/react-query";
@@ -99,8 +101,8 @@ function MissionSection({ locale }: { locale: Locale }) {
     { icon: Barrel, img: serviceTanker, ...copy.services[3] },
     { icon: Container, img: serviceTipper, ...copy.services[0] },
     { icon: Truck, img: serviceCurtainsider, ...copy.services[1] },
-    { icon: Van, img: serviceStone, ...copy.services[4] },
-    { icon: Recycle, img: serviceStone, ...copy.services[5] },
+    { icon: Van, img: serviceSemitruck, ...copy.services[4] },
+    { icon: Recycle, img: serviceNonhazard, ...copy.services[5] },
   ];
 
   return (
@@ -374,7 +376,7 @@ export function AboutPage({ locale }: { locale: Locale }) {
                 key={slideIdx}
                 className="group rounded-2xl border border-white/15 bg-black/45 p-5 text-white shadow-lg backdrop-blur-xl transition-all duration-300 hover:border-brand-accent/60 hover:bg-black/55 hover:shadow-2xl md:p-6"
               >
-                <div className="mb-3 inline-flex items-center rounded-full border border-brand-accent/50 bg-brand-accent/15 px-2.5 py-1 text-[10px] font-display uppercase tracking-[0.18em] text-brand-accent">
+                <div className="mb-3 inline-flex items-center rounded-full border border-brand-accent/50 bg-brand-accent/15 px-2.5 py-1 text-[10px] font-display uppercase tracking-[0.18em] text-bxrand-accent">
                   {slideIdx + 1}
                 </div>
                 <h1 className="mb-3 text-balance font-display text-xl uppercase tracking-wide text-brand-accent drop-shadow md:text-2xl">

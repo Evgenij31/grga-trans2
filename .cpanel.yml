@@ -1,7 +1,7 @@
 ---
 deployment:
   tasks:
-    - export DeploymentPath=/home/webevermk/public_html
+    - export DeploymentPath=/home/webevermk/public_html/grga.mk
     - /usr/bin/npm install
     - /usr/bin/npm run build
     - /bin/cp -R .output/* $DeploymentPath/

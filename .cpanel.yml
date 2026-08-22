@@ -6,3 +6,4 @@ deployment:
     - /usr/bin/npm run build
     - /bin/cp -R .output/* $DeploymentPath/
     - /bin/rm -f $DeploymentPath/.cpanel.yml
+

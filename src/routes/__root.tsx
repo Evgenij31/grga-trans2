@@ -14,6 +14,28 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { getLocaleFromPathname } from "@/lib/i18n";
 
+const businessStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://grgatrans.mk/#business",
+  name: "Grga Trans",
+  url: "https://grgatrans.mk/",
+  logo: "https://grgatrans.mk/logo.png",
+  image: "https://grgatrans.mk/logo.png",
+  description: "Professional tipper transport and logistics services since 1999.",
+  telephone: ["+38976552462", "+38975746066"],
+  email: ["grgadoo99@gmail.com", "contact@grga.mk"],
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Marshal Tito b.b",
+    postalCode: "2333",
+    addressLocality: "Spanchevo",
+    addressCountry: "MK",
+  },
+  areaServed: ["North Macedonia", "Balkans"],
+  foundingDate: "1999",
+};
+
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -69,11 +91,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+    ],
+    scripts: [
       {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap",
+        type: "application/ld+json",
+        children: JSON.stringify(businessStructuredData),
       },
     ],
   }),

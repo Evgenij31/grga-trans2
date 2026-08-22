@@ -107,7 +107,12 @@ function MissionSection({ locale }: { locale: Locale }) {
 
   return (
     <section className="bg-background py-20 md:py-28">
-      <div className="mx-auto mt-16 flex max-w-7xl gap-8 px-8 flex-col justify-center align-center flex-wrap md:mt-20 md:flex-row">
+      <div className="mx-auto max-w-7xl px-8">
+        <h2 className="mb-10 text-center font-display text-3xl uppercase text-foreground md:text-4xl">
+          {copy.servicesHeading}
+        </h2>
+      </div>
+      <div className="mx-auto flex max-w-7xl gap-8 px-8 flex-col justify-center align-center flex-wrap md:flex-row">
         {services.map((service) => (
           <article
             key={service.title}
@@ -365,9 +370,9 @@ export function AboutPage({ locale }: { locale: Locale }) {
       <div className="relative z-10 flex min-h-[calc(100vh-4rem)] flex-col justify-between px-4 py-6 md:min-h-[calc(100vh-5rem)] md:px-8 md:py-8">
         <div className="mx-auto w-full max-w-7xl rounded-3xl border border-white/15 bg-black/30 p-4 shadow-2xl backdrop-blur-sm md:p-6">
           <div className="mb-5 md:mb-6">
-            <span className="inline-block text-xs font-display uppercase tracking-[0.25em] text-brand-accent">
+            <h1 className="inline-block text-xs font-display uppercase tracking-[0.25em] text-brand-accent">
               {copy.label}
-            </span>
+            </h1>
           </div>
 
           <div className="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-4 xl:grid-cols-3">
@@ -379,9 +384,9 @@ export function AboutPage({ locale }: { locale: Locale }) {
                 <div className="mb-3 inline-flex items-center rounded-full border border-brand-accent/50 bg-brand-accent/15 px-2.5 py-1 text-[10px] font-display uppercase tracking-[0.18em] text-bxrand-accent">
                   {slideIdx + 1}
                 </div>
-                <h1 className="mb-3 text-balance font-display text-xl uppercase tracking-wide text-brand-accent drop-shadow md:text-2xl">
+                <h2 className="mb-3 text-balance font-display text-xl uppercase tracking-wide text-brand-accent drop-shadow md:text-2xl">
                   {slide.title}
-                </h1>
+                </h2>
                 <p className="whitespace-pre-line text-sm leading-relaxed text-white/92 md:text-base">
                   {slide.text}
                 </p>

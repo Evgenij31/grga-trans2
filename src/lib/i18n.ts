@@ -18,6 +18,7 @@ export const siteCopy = {
         title: "Грга Транс",
         subtitle: "Поврзувајќи дестинации, градејќи доверба",
       },
+      servicesHeading: "Нашите услуги",
       services: [
         {
           title: "Контејнерски транспорт",
@@ -156,6 +157,7 @@ export const siteCopy = {
     footer: { navigation: "Navigation", contact: "Contact", rights: "All rights reserved." },
     home: {
       hero: { title: "Grga Trans", subtitle: "Connecting destinations, building trust" },
+      servicesHeading: "Our services",
       services: [
         {
           title: "Container transport",
@@ -298,6 +300,7 @@ export const siteCopy = {
     },
     home: {
       hero: { title: "Grga Trans", subtitle: "Lidhim destinacione, ndërtojmë besim" },
+      servicesHeading: "Shërbimet tona",
       services: [
         {
           title: "Transport me kontejnerë",

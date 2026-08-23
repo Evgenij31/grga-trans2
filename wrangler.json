@@ -6,6 +6,12 @@
   "main": "src/server.ts",
   "vars": {
     "SMTP_HOST": "smtp.ethereal.email",
-    "SMTP_PORT": "587",
+    "SMTP_PORT": "587"
   },
+  "observability": {
+    "logs": {
+      "enabled": false,
+      "invocation_logs": true
+    }
+  }
 }
